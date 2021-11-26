@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href={{ url_for('static', filename='css/result.css') }}>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <div class='signup-container'>
+  <div class='left-container'>
+    <h1>
+      <a href="/" style="color:black">
+        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        <b>
+          Admission Data Analysis
+        </b>
+      </a>
+    </h1>
+    <div class="puppy">
+      <p>We are not affiliated either with NTA or JOSAA.</p>
+      <p>Results based on the  cutoff lists provided by JOSAA.</p>
+    </div>
+
+  </div>
+  <div class='right-container'>
+    <h1>Congratulations ! <br>
+      <div class="lines">Your expected {{category}} rank: <br>
+        <bold>{{ranks}}</bold>
+      </div>
+    </h1>
+
+    <div class='state clg_list'>
+      <p class="heading">As per the data obtained from JOSAA , you might get:</p>
+    </div>
+
+    <table class="res">
+    </table>
+    <table class="res">
+      {% for table in tables %}
+      {{titles[loop.index]}}
+      {{ table|safe }}
+      {% endfor %}
+    </table>
+    <footer>
+      <div class='set'>
+        <button id='next' onclick="window.location.href='/'">Back</button>
+      </div>
+    </footer>
+
+  </div>
+</div>
+</body>
+
+</html>
